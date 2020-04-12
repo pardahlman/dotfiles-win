@@ -91,4 +91,4 @@ firefox "https://addons.mozilla.org/en-US/firefox/addon/lastpass-password-manage
 firefox "https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/"
 firefox "https://hyper.is/#installation"
 
-Invoke-Expression "$PSScriptRoot\\Win10-Initial-Setup-Script\\Win10.ps1 -preset $PSScriptRoot\\config\\Win10.preset"
+Invoke-Expression "$PSScriptRoot\\Win10-Initial-Setup-Script\\Win10.ps1 -preset $PSScriptRoot\\config\\Win10.preset -include $PSScriptRoot\\Win10-Initial-Setup-Script\\Win10.psm1"

@@ -6,12 +6,12 @@ if(Test-Path $InstallDirectory){
     exit 1;
 }
 
-if (-ne (Get-Command scoop -errorAction SilentlyContinue))
+if (-not (Get-Command scoop -errorAction SilentlyContinue))
 {
     Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
 }
 
-if (-ne (Get-Command git -errorAction SilentlyContinue))
+if (-not (Get-Command git -errorAction SilentlyContinue))
 {
     scoop install git
 }

@@ -35,8 +35,8 @@ ScoopInstallOrUpdate("z")
 ScoopInstallOrUpdate("dotnet-sdk")
 ScoopInstallOrUpdate("posh-git")
 ScoopInstallOrUpdate("nvm")
-nvm install 12.16.2
-nvm use 12.16.2
+Invoke-Expression "nvm install 12.16.2"
+Invoke-Expression "nvm use 12.16.2"
 ScoopInstallOrUpdate("yarn")
 ScoopInstallOrUpdate("busybox")
 ScoopInstallOrUpdate("vim")

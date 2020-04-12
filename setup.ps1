@@ -81,7 +81,7 @@ if(Test-Path $HOME/.vim_runtime){
 } else {
     Write-Output "Installing VIM configuration"
     git clone --depth=1 https://github.com/amix/vimrc.git $HOME/.vim_runtime
-    New-Item -ItemType HardLink -Force -Path $HOME -Name .vimrc -Value $HOME\.vim_runtime\basic.vim | Out-null
+    New-Item -ItemType HardLink -Force -Path $HOME -Name .vimrc -Value $HOME\.vim_runtime\vimrcs\basic.vim | Out-null
 }
 
 Write-Output "Opening firefox for manual installers"

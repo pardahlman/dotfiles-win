@@ -50,7 +50,7 @@ ScoopInstallOrUpdate("signal")
 ScoopInstallOrUpdate("slack")
 
 $DotNetOptOut = [System.Environment]::GetEnvironmentVariable("DOTNET_CLI_TELEMETRY_OPTOUT", "User");
-if($DotNetOptOut -ne $null){
+if($DotNetOptOut -eq $null){
     Write-Output "Opting out from .NET Telemetry"
     [System.Environment]::SetEnvironmentVariable("DOTNET_CLI_TELEMETRY_OPTOUT", 1, "User")
 }
@@ -58,25 +58,29 @@ if($DotNetOptOut -ne $null){
 DotNetGlobalToolInstallOrUpdate("PowerShell")
 DotNetGlobalToolInstallOrUpdate("dotnet-rider-cli")
 
-# if(Test-Path $PSScriptRoot\config\git\gitconfig.local -ne $null)
-# {
-#     Copy-Item -Path $PSScriptRoot\config\git\gitconfig.local -Destination $HOME\.gitconfig.local | Out-null
-# }
-# New-Item -ItemType HardLink -Force -Path $HOME -Name .gitignore -Value $PSScriptRoot\config\git\gitignore | Out-null
-# New-Item -ItemType HardLink -Force -Path $HOME -Name .gitattributes -Value $PSScriptRoot\config\git\gitattributes | Out-null
-# New-Item -ItemType HardLink -Force -Path $HOME -Name .gitconfig -Value $PSScriptRoot\config\git\gitconfig | Out-null
-# New-Item -ItemType HardLink -Force -Path $HOME -Name .vimrc -Value $PSScriptRoot\config\vim\vimrc | Out-null
-# New-Item -ItemType HardLink -Force -Path $env:APPDATA\Hyper -Name .hyper.js -Target $PSScriptRoot\config\hyperjs\hyper.js | Out-Null
-# New-Item -ItemType HardLink -Force -Path $PROFILE -Target $PSScriptRoot\config\pwsh\Microsoft.PowerShell_profile.ps1 | Out-Null
-# New-Item -Type HardLink -Force -Path $env:APPDATA\Code\User -Name settings.json -Target $PSScriptRoot\config\vscode\settings.json | Out-Null
+if(Test-Path $PSScriptRoot\config\git\gitconfig.local){
+    Write-Host "Local git configuration found"
+} else {
+    Copy-Item -Path $PSScriptRoot\config\git\gitconfig.local -Destination $HOME\.gitconfig.local | Out-null
+}
 
-# git clone --depth=1 https://github.com/amix/vimrc.git $HOME/.vim_runtime
-# sh $HOME/.vim_runtime/install_basic_vimrc.sh
+New-Item -ItemType HardLink -Force -Path $HOME -Name .gitignore -Value $PSScriptRoot\config\git\gitignore | Out-null
+New-Item -ItemType HardLink -Force -Path $HOME -Name .gitattributes -Value $PSScriptRoot\config\git\gitattributes | Out-null
+New-Item -ItemType HardLink -Force -Path $HOME -Name .gitconfig -Value $PSScriptRoot\config\git\gitconfig | Out-null
+New-Item -ItemType HardLink -Force -Path $env:APPDATA\Hyper -Name .hyper.js -Target $PSScriptRoot\config\hyperjs\hyper.js | Out-Null
+New-Item -ItemType HardLink -Force -Path $PROFILE -Target $PSScriptRoot\config\pwsh\Microsoft.PowerShell_profile.ps1 | Out-Null
+New-Item -Type HardLink -Force -Path $env:APPDATA\Code\User -Name settings.json -Target $PSScriptRoot\config\vscode\settings.json | Out-Null
 
-# git clone https://github.com/Disassembler0/Win10-Initial-Setup-Script.git
-# Invoke-Expression $PSScriptRoot\\Win10-Initial-Setup-Script\\Default.cmd
-
-# # hyperjs
+if(Test-Path $HOME/.vim_runtime){
+    Write-Output "Updating VIM configuration"
+    Push-Location $HOME/.vim_runtime
+    git pull --rebase
+    Pop-Location
+} else {
+    Write-Output "Installing VIM configuration"
+    git clone --depth=1 https://github.com/amix/vimrc.git $HOME/.vim_runtime
+    sh $HOME/.vim_runtime/install_basic_vimrc.sh
+}
 
 Write-Output "Opening firefox for manual installers"
 firefox "https://www.sync.com/download/win/sync-installer.exe"
@@ -84,3 +88,5 @@ firefox "https://download.scdn.co/SpotifySetup.exe"
 firefox "https://addons.mozilla.org/en-US/firefox/addon/lastpass-password-manager/"
 firefox "https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/"
 firefox "https://hyper.is/#installation"
+
+Invoke-Expression $PSScriptRoot\\Win10-Initial-Setup-Script\\Win10.ps1 -preset $PSScriptRoot\\config\\Win10.preset

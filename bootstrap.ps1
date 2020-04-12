@@ -17,5 +17,5 @@ if (-ne (Get-Command git -errorAction SilentlyContinue))
 }
 
 scoop bucket add extras
-git clone $RepositoryUrl $InstallDirectory
+git clone --recurse-submodules $RepositoryUrl $InstallDirectory
 Invoke-Expression "$InstallDirectory\setup.ps1"

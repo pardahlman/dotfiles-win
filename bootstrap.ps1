@@ -1,6 +1,6 @@
 $ErrorActionPreference = 'Stop'
 
-$RepositoryUrl = "https://github.com/pardahlman/dotfiles-windows.git"
+$RepositoryUrl = "https://github.com/pardahlman/dotfiles-win.git"
 $InstallDirectory = "$HOME/.dotfiles"
 
 if(Test-Path $InstallDirectory){

@@ -1,3 +1,5 @@
+$ErrorActionPreference = 'Stop'
+
 $RepositoryUrl = "https://github.com/pardahlman/dotfiles-windows.git"
 $InstallDirectory = "$HOME/.dotfiles"
 

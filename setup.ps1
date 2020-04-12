@@ -1,0 +1,86 @@
+function ScoopInstallOrUpdate($appName) {
+    Write-Output "Installing $appName..."
+    Invoke-Expression "powershell -Command scoop install $appName" | Out-Null
+    Invoke-Expression "powershell -Command scoop update $appName" | Out-Null
+}
+
+function DotNetGlobalToolInstallOrUpdate($appName) {
+    Write-Output "Installing $appName..."
+    Invoke-Expression "powershell -Command dotnet tool install --global $appName" | Out-Null
+    Invoke-Expression "powershell -Command dotnet tool update --global $appName" | Out-Null
+}
+
+function CommandNotAvailable($commandName) {
+    if(Get-Command $commandName -ErrorAction SilentlyContinue){
+        return $false;
+    }
+
+    return $true;
+}
+
+function ScoopAddScoopBucket($bucketName){
+    Write-Output "Adding bucket $bucketName"
+    Invoke-Expression "powershell -Command scoop bucket add $bucketName" | Out-Null
+}
+
+if (CommandNotAvailable("scoop"))
+{
+    Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
+}
+
+ScoopInstallOrUpdate("git")
+ScoopAddScoopBucket("extras")
+ScoopInstallOrUpdate("sudo")
+ScoopInstallOrUpdate("z")
+ScoopInstallOrUpdate("dotnet-sdk")
+ScoopInstallOrUpdate("posh-git")
+ScoopInstallOrUpdate("nvm")
+ScoopInstallOrUpdate("yarn")
+ScoopInstallOrUpdate("busybox")
+ScoopInstallOrUpdate("vim")
+ScoopInstallOrUpdate("vscode")
+ScoopInstallOrUpdate("jetbrains-toolbox")
+ScoopInstallOrUpdate("firefox")
+ScoopInstallOrUpdate("everything")
+ScoopInstallOrUpdate("beyondcompare")
+ScoopInstallOrUpdate("docker")
+ScoopInstallOrUpdate("vlc")
+ScoopInstallOrUpdate("steam")
+ScoopInstallOrUpdate("signal")
+ScoopInstallOrUpdate("slack")
+
+$DotNetOptOut = [System.Environment]::GetEnvironmentVariable("DOTNET_CLI_TELEMETRY_OPTOUT", "User");
+if($DotNetOptOut -ne $null){
+    Write-Output "Opting out from .NET Telemetry"
+    [System.Environment]::SetEnvironmentVariable("DOTNET_CLI_TELEMETRY_OPTOUT", 1, "User")
+}
+
+DotNetGlobalToolInstallOrUpdate("PowerShell")
+DotNetGlobalToolInstallOrUpdate("dotnet-rider-cli")
+
+# if(Test-Path $PSScriptRoot\config\git\gitconfig.local -ne $null)
+# {
+#     Copy-Item -Path $PSScriptRoot\config\git\gitconfig.local -Destination $HOME\.gitconfig.local | Out-null
+# }
+# New-Item -ItemType HardLink -Force -Path $HOME -Name .gitignore -Value $PSScriptRoot\config\git\gitignore | Out-null
+# New-Item -ItemType HardLink -Force -Path $HOME -Name .gitattributes -Value $PSScriptRoot\config\git\gitattributes | Out-null
+# New-Item -ItemType HardLink -Force -Path $HOME -Name .gitconfig -Value $PSScriptRoot\config\git\gitconfig | Out-null
+# New-Item -ItemType HardLink -Force -Path $HOME -Name .vimrc -Value $PSScriptRoot\config\vim\vimrc | Out-null
+# New-Item -ItemType HardLink -Force -Path $env:APPDATA\Hyper -Name .hyper.js -Target $PSScriptRoot\config\hyperjs\hyper.js | Out-Null
+# New-Item -ItemType HardLink -Force -Path $PROFILE -Target $PSScriptRoot\config\pwsh\Microsoft.PowerShell_profile.ps1 | Out-Null
+# New-Item -Type HardLink -Force -Path $env:APPDATA\Code\User -Name settings.json -Target $PSScriptRoot\config\vscode\settings.json | Out-Null
+
+# git clone --depth=1 https://github.com/amix/vimrc.git $HOME/.vim_runtime
+# sh $HOME/.vim_runtime/install_basic_vimrc.sh
+
+# git clone https://github.com/Disassembler0/Win10-Initial-Setup-Script.git
+# Invoke-Expression $PSScriptRoot\\Win10-Initial-Setup-Script\\Default.cmd
+
+# # hyperjs
+
+Write-Output "Opening firefox for manual installers"
+firefox "https://www.sync.com/download/win/sync-installer.exe"
+firefox "https://download.scdn.co/SpotifySetup.exe"
+firefox "https://addons.mozilla.org/en-US/firefox/addon/lastpass-password-manager/"
+firefox "https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/"
+firefox "https://hyper.is/#installation"

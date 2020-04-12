@@ -1,0 +1,7 @@
+{
+    "editor.detectIndentation": true,
+    "editor.codeLens": false,
+    "editor.renderWhitespace": "all",
+    "window.zoomLevel": 0,
+    "files.insertFinalNewline": true
+}

@@ -12,18 +12,22 @@ function CommandNotAvailable($commandName) {
     return $true;
 }
 
-function ScoopAddScoopBucket($bucketName){
-    Write-Output "Adding bucket $bucketName"
-    Invoke-Expression "powershell -Command scoop bucket add $bucketName" | Out-Null
-}
-
 if (CommandNotAvailable("scoop"))
 {
     Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
 }
 
+$BucketNames = scoop bucket list | Select-Object -ExpandProperty Name
+foreach ($BucketName in @("main","extras","nerd-fonts")) {
+  if(-not $BucketNames.Contains($BucketName))
+    {
+        Write-Output "Adding bucket $bucketName"
+        scoop bucket add extras 6> $null
+    }
+ }
+
+
 ScoopInstallOrUpdate("git")
-ScoopAddScoopBucket("extras")
 ScoopInstallOrUpdate("sudo")
 ScoopInstallOrUpdate("z")
 ScoopInstallOrUpdate("dotnet-sdk")

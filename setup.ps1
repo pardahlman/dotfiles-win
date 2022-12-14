@@ -4,12 +4,6 @@ function ScoopInstallOrUpdate($appName) {
     Invoke-Expression "powershell -Command scoop update $appName" | Out-Null
 }
 
-function DotNetGlobalToolInstallOrUpdate($appName) {
-    Write-Output "Installing $appName..."
-    Invoke-Expression "powershell -Command dotnet tool install --global $appName" | Out-Null
-    Invoke-Expression "powershell -Command dotnet tool update --global $appName" | Out-Null
-}
-
 function CommandNotAvailable($commandName) {
     if(Get-Command $commandName -ErrorAction SilentlyContinue){
         return $false;
@@ -47,14 +41,13 @@ ScoopInstallOrUpdate("vlc")
 ScoopInstallOrUpdate("steam")
 ScoopInstallOrUpdate("signal")
 ScoopInstallOrUpdate("slack")
+ScoopInstallOrUpdate("pwsh")
 
 $DotNetOptOut = [System.Environment]::GetEnvironmentVariable("DOTNET_CLI_TELEMETRY_OPTOUT", "User");
 if($DotNetOptOut -eq $null){
     Write-Output "Opting out from .NET Telemetry"
     [System.Environment]::SetEnvironmentVariable("DOTNET_CLI_TELEMETRY_OPTOUT", 1, "User")
 }
-
-DotNetGlobalToolInstallOrUpdate("PowerShell")
 
 if(Test-Path $HOME\.gitconfig.local){
     Write-Host "Local git configuration found"

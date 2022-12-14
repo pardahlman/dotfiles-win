@@ -55,7 +55,6 @@ if($DotNetOptOut -eq $null){
 }
 
 DotNetGlobalToolInstallOrUpdate("PowerShell")
-DotNetGlobalToolInstallOrUpdate("dotnet-rider-cli")
 
 if(Test-Path $HOME\.gitconfig.local){
     Write-Host "Local git configuration found"

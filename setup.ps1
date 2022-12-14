@@ -4,15 +4,7 @@ function ScoopInstallOrUpdate($appName) {
     Invoke-Expression "powershell -Command scoop update $appName" | Out-Null
 }
 
-function CommandNotAvailable($commandName) {
-    if(Get-Command $commandName -ErrorAction SilentlyContinue){
-        return $false;
-    }
-
-    return $true;
-}
-
-if (CommandNotAvailable("scoop"))
+if(Get-Command $commandName -ErrorAction SilentlyContinue)
 {
     Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
 }

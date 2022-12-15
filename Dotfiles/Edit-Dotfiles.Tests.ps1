@@ -2,6 +2,10 @@ BeforeAll {
     . $PSScriptRoot/Edit-Dotfiles.ps1
     . $PSScriptRoot/Get-DotfilesLocation.ps1
     . $PSScriptRoot/Private/Test-CommandExist.ps1
+
+    if(-not (Test-CommandExist "code")){
+        function code {}
+    }
 }
 
 Describe "Edit-Dotfiles" {

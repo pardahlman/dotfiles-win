@@ -58,7 +58,7 @@ DotNetGlobalToolInstallOrUpdate("PowerShell")
 DotNetGlobalToolInstallOrUpdate("dotnet-rider-cli")
 
 if(Test-Path $HOME\.gitconfig.local){
-    Write-Host "Local git configuration found"
+    Write-Out "Local git configuration found"
 } else {
     Copy-Item -Path $PSScriptRoot\config\git\gitconfig.local -Destination $HOME\.gitconfig.local | Out-null
 }

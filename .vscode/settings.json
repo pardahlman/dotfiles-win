@@ -1,0 +1,8 @@
+{
+    "powershell.codeFormatting.autoCorrectAliases": true,
+    "powershell.codeFormatting.trimWhitespaceAroundPipe": true,
+    "powershell.codeFormatting.useCorrectCasing": true,
+    "powershell.codeFormatting.whitespaceBetweenParameters": true,
+    "editor.formatOnSave": true,
+    "powershell.codeFormatting.avoidSemicolonsAsLineTerminators": true
+}

@@ -142,6 +142,30 @@
     #                     │        └─ decorations (branch, heads or tags)
     #                     └─ hash (abbreviated)
 
+[core]
+#    pager = delta
+
+[interactive]
+#    diffFilter = delta --color-only --features=interactive
+
+[delta]
+    features = decorations
+
+[delta "interactive"]
+    keep-plus-minus-markers = false
+
+[delta "decorations"]
+    hyperlinks = true
+    side-by-side = true
+    syntax-theme = Solarized (dark)
+    commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = omit
+    hunk-header-style = file line-number syntax
+    plus-style = syntax "#305430"
+    plus-emph-style = "#EEE8D5" bold "#56762B"
+    minus-style = syntax "#543030"
+    minus-emph-style = "#EEE8D5" bold "#8A3C3A"
 
 [push]
 

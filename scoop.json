@@ -1,0 +1,185 @@
+{
+    "buckets": [
+        {
+            "Name": "extras",
+            "Source": "https://github.com/ScoopInstaller/Extras",
+            "Updated": "2022-12-14T13:29:55+01:00",
+            "Manifests": 1745
+        },
+        {
+            "Name": "main",
+            "Source": "https://github.com/ScoopInstaller/Main",
+            "Updated": "2022-12-14T13:38:33+01:00",
+            "Manifests": 1124
+        },
+        {
+            "Name": "nerd-fonts",
+            "Source": "https://github.com/matthewjberger/scoop-nerd-fonts",
+            "Updated": "2022-12-13T22:12:47+01:00",
+            "Manifests": 209
+        }
+    ],
+    "apps": [
+        {
+            "Updated": "2022-11-10T08:08:00.276599+01:00",
+            "Version": "4784-g5507c8744",
+            "Source": "main",
+            "Name": "busybox",
+            "Info": ""
+        },
+        {
+            "Updated": "2022-10-24T07:25:37.8920682+02:00",
+            "Version": "1.4.1.1022",
+            "Source": "extras",
+            "Name": "everything",
+            "Info": ""
+        },
+        {
+            "Updated": "2022-11-07T09:06:47.7836258+01:00",
+            "Version": "6.2",
+            "Source": "nerd-fonts",
+            "Name": "firacode",
+            "Info": ""
+        },
+        {
+            "Updated": "2022-12-12T09:11:17.5820257+01:00",
+            "Version": "98.0",
+            "Source": "extras",
+            "Name": "firefox",
+            "Info": ""
+        },
+        {
+            "Updated": "2022-12-14T14:34:48.638567+01:00",
+            "Version": "2.39.0.windows.1",
+            "Source": "main",
+            "Name": "git",
+            "Info": ""
+        },
+        {
+            "Updated": "2022-11-10T08:09:45.1932139+01:00",
+            "Version": "1.19.3",
+            "Source": "main",
+            "Name": "go",
+            "Info": ""
+        },
+        {
+            "Updated": "2022-06-15T08:10:46.8871975+02:00",
+            "Version": "1.2.10.6",
+            "Source": "extras",
+            "Name": "greenshot",
+            "Info": ""
+        },
+        {
+            "Updated": "2022-06-08T08:54:07.242917+02:00",
+            "Version": "3.7",
+            "Source": "main",
+            "Name": "grep",
+            "Info": ""
+        },
+        {
+            "Updated": "2022-12-05T10:00:45.0717574+01:00",
+            "Version": "1.27.0.13477",
+            "Source": "extras",
+            "Name": "jetbrains-toolbox",
+            "Info": ""
+        },
+        {
+            "Updated": "2022-10-10T07:47:51.8983225+02:00",
+            "Version": "2.52",
+            "Source": "extras",
+            "Name": "keepass",
+            "Info": ""
+        },
+        {
+            "Updated": "2022-11-10T08:09:56.6128756+01:00",
+            "Version": "1.1.10",
+            "Source": "main",
+            "Name": "nvm",
+            "Info": ""
+        },
+        {
+            "Updated": "2022-04-20T08:35:31.878258+02:00",
+            "Version": "1.1.0",
+            "Source": "extras",
+            "Name": "posh-git",
+            "Info": ""
+        },
+        {
+            "Updated": "2022-12-05T13:02:39.7350424+01:00",
+            "Version": "7.3.0",
+            "Source": "main",
+            "Name": "pwsh",
+            "Info": ""
+        },
+        {
+            "Updated": "2022-08-15T09:14:18.5764702+02:00",
+            "Version": "2.37.1",
+            "Source": "extras",
+            "Name": "screentogif",
+            "Info": ""
+        },
+        {
+            "Updated": "2022-12-14T15:00:08.6639006+01:00",
+            "Version": "6.0.1",
+            "Source": "extras",
+            "Name": "signal",
+            "Info": ""
+        },
+        {
+            "Updated": "2022-12-05T13:02:49.2301939+01:00",
+            "Version": "1.1.99.878.g1e4ccc6e",
+            "Source": "extras",
+            "Name": "spotify",
+            "Info": ""
+        },
+        {
+            "Updated": "2022-10-24T07:29:09.3678064+02:00",
+            "Version": "1.11.0",
+            "Source": "main",
+            "Name": "starship",
+            "Info": ""
+        },
+        {
+            "Updated": "2022-03-14T14:05:55.0632444+01:00",
+            "Version": "0.2020.01.26",
+            "Source": "main",
+            "Name": "sudo",
+            "Info": ""
+        },
+        {
+            "Updated": "2022-12-14T14:56:12.7694111+01:00",
+            "Version": "9.0",
+            "Source": "main",
+            "Name": "vim",
+            "Info": ""
+        },
+        {
+            "Updated": "2022-12-05T10:00:55.9079238+01:00",
+            "Version": "1.73.1",
+            "Source": "extras",
+            "Name": "vscode",
+            "Info": ""
+        },
+        {
+            "Updated": "2022-10-24T07:29:58.4266494+02:00",
+            "Version": "1.15.2874.0",
+            "Source": "extras",
+            "Name": "windows-terminal",
+            "Info": ""
+        },
+        {
+            "Updated": "2022-06-01T07:13:56.8966542+02:00",
+            "Version": "1.22.19",
+            "Source": "main",
+            "Name": "yarn",
+            "Info": ""
+        },
+        {
+            "Updated": "2022-03-14T10:23:26.0138176+01:00",
+            "Version": "1.1.13",
+            "Source": "extras",
+            "Name": "z",
+            "Info": ""
+        }
+    ]
+}

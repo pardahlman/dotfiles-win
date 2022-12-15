@@ -11,20 +11,19 @@ function DotNetGlobalToolInstallOrUpdate($appName) {
 }
 
 function CommandNotAvailable($commandName) {
-    if(Get-Command $commandName -ErrorAction SilentlyContinue){
-        return $false;
+    if (Get-Command $commandName -ErrorAction SilentlyContinue) {
+        return $false
     }
 
-    return $true;
+    return $true
 }
 
-function ScoopAddScoopBucket($bucketName){
+function ScoopAddScoopBucket($bucketName) {
     Write-Output "Adding bucket $bucketName"
     Invoke-Expression "powershell -Command scoop bucket add $bucketName" | Out-Null
 }
 
-if (CommandNotAvailable("scoop"))
-{
+if (CommandNotAvailable("scoop")) {
     Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
 }
 
@@ -48,8 +47,8 @@ ScoopInstallOrUpdate("steam")
 ScoopInstallOrUpdate("signal")
 ScoopInstallOrUpdate("slack")
 
-$DotNetOptOut = [System.Environment]::GetEnvironmentVariable("DOTNET_CLI_TELEMETRY_OPTOUT", "User");
-if($DotNetOptOut -eq $null){
+$DotNetOptOut = [System.Environment]::GetEnvironmentVariable("DOTNET_CLI_TELEMETRY_OPTOUT", "User")
+if ($DotNetOptOut -eq $null) {
     Write-Output "Opting out from .NET Telemetry"
     [System.Environment]::SetEnvironmentVariable("DOTNET_CLI_TELEMETRY_OPTOUT", 1, "User")
 }
@@ -57,28 +56,30 @@ if($DotNetOptOut -eq $null){
 DotNetGlobalToolInstallOrUpdate("PowerShell")
 DotNetGlobalToolInstallOrUpdate("dotnet-rider-cli")
 
-if(Test-Path $HOME\.gitconfig.local){
+if (Test-Path $HOME\.gitconfig.local) {
     Write-Out "Local git configuration found"
-} else {
-    Copy-Item -Path $PSScriptRoot\config\git\gitconfig.local -Destination $HOME\.gitconfig.local | Out-null
+}
+else {
+    Copy-Item -Path $PSScriptRoot\config\git\gitconfig.local -Destination $HOME\.gitconfig.local | Out-Null
 }
 
-New-Item -ItemType HardLink -Force -Path $HOME -Name .gitignore -Value $PSScriptRoot\config\git\gitignore | Out-null
-New-Item -ItemType HardLink -Force -Path $HOME -Name .gitattributes -Value $PSScriptRoot\config\git\gitattributes | Out-null
-New-Item -ItemType HardLink -Force -Path $HOME -Name .gitconfig -Value $PSScriptRoot\config\git\gitconfig | Out-null
+New-Item -ItemType HardLink -Force -Path $HOME -Name .gitignore -Value $PSScriptRoot\config\git\gitignore | Out-Null
+New-Item -ItemType HardLink -Force -Path $HOME -Name .gitattributes -Value $PSScriptRoot\config\git\gitattributes | Out-Null
+New-Item -ItemType HardLink -Force -Path $HOME -Name .gitconfig -Value $PSScriptRoot\config\git\gitconfig | Out-Null
 New-Item -ItemType HardLink -Force -Path $env:APPDATA\Hyper -Name .hyper.js -Target $PSScriptRoot\config\hyperjs\hyper.js | Out-Null
 New-Item -ItemType HardLink -Force -Path $PROFILE -Target $PSScriptRoot\config\pwsh\Microsoft.PowerShell_profile.ps1 | Out-Null
 New-Item -Type HardLink -Force -Path $env:APPDATA\Code\User -Name settings.json -Target $PSScriptRoot\config\vscode\settings.json | Out-Null
 
-if(Test-Path $HOME/.vim_runtime){
+if (Test-Path $HOME/.vim_runtime) {
     Write-Output "Updating VIM configuration"
     Push-Location $HOME/.vim_runtime
     git pull --rebase
     Pop-Location
-} else {
+}
+else {
     Write-Output "Installing VIM configuration"
     git clone --depth=1 https://github.com/amix/vimrc.git $HOME/.vim_runtime
-    New-Item -ItemType HardLink -Force -Path $HOME -Name .vimrc -Value $HOME\.vim_runtime\vimrcs\basic.vim | Out-null
+    New-Item -ItemType HardLink -Force -Path $HOME -Name .vimrc -Value $HOME\.vim_runtime\vimrcs\basic.vim | Out-Null
 }
 
 Write-Output "Opening firefox for manual installers"

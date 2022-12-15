@@ -9,8 +9,11 @@ PS> Edit-Dotfiles
 
 #>
 function Edit-Dotfiles {
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseSingularNouns", "")]
+    Param()
+
     $DotfilesLocation = Get-DotfilesLocation
-    if (Test-CommandExists "code") {
+    if (Test-CommandExist "code") {
         & code $DotfilesLocation
     }
     else {

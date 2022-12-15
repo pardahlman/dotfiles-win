@@ -20,7 +20,7 @@ jobs:
         with:
           sarif_file: results.sarif
   Run-Tests:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
       - name: Run Pester tests

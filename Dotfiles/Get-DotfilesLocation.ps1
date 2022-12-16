@@ -1,3 +1,3 @@
 function Get-DotfilesLocation {
-    return Get-Location | Split-Path
+    return $PSScriptRoot | Split-Path
 }

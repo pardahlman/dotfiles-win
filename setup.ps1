@@ -43,6 +43,7 @@ ScoopInstallOrUpdate("signal")
 ScoopInstallOrUpdate("slack")
 ScoopInstallOrUpdate("windows-terminal")
 ScoopInstallOrUpdate("bitwarden")
+ScoopInstallOrUpdate("keepass")
 
 $DotNetOptOut = [System.Environment]::GetEnvironmentVariable("DOTNET_CLI_TELEMETRY_OPTOUT", "User")
 if ($DotNetOptOut -eq $null) {

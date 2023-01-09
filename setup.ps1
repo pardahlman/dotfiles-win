@@ -82,4 +82,4 @@ firefox "https://www.sync.com/download/win/sync-installer.exe"
 firefox "https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/"
 firefox "https://hyper.is/#installation"
 
-Invoke-Expression "$PSScriptRoot\\Win10-Initial-Setup-Script\\Win10.ps1 -preset $PSScriptRoot\\config\\Win10.preset -include $PSScriptRoot\\Win10-Initial-Setup-Script\\Win10.psm1"
+# Invoke-Expression "$PSScriptRoot\\Win10-Initial-Setup-Script\\Win10.ps1 -preset $PSScriptRoot\\config\\Win10.preset -include $PSScriptRoot\\Win10-Initial-Setup-Script\\Win10.psm1"

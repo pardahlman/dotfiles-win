@@ -42,6 +42,7 @@ ScoopInstallOrUpdate("spotify")
 ScoopInstallOrUpdate("signal")
 ScoopInstallOrUpdate("slack")
 ScoopInstallOrUpdate("windows-terminal")
+ScoopInstallOrUpdate("bitwarden")
 
 $DotNetOptOut = [System.Environment]::GetEnvironmentVariable("DOTNET_CLI_TELEMETRY_OPTOUT", "User")
 if ($DotNetOptOut -eq $null) {
@@ -77,7 +78,6 @@ else {
 
 Write-Output "Opening firefox for manual installers"
 firefox "https://www.sync.com/download/win/sync-installer.exe"
-firefox "https://addons.mozilla.org/en-US/firefox/addon/lastpass-password-manager/"
 firefox "https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/"
 firefox "https://hyper.is/#installation"
 

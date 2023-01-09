@@ -54,8 +54,6 @@ if ($DotNetOptOut -eq $null) {
     [System.Environment]::SetEnvironmentVariable("DOTNET_CLI_TELEMETRY_OPTOUT", 1, "User")
 }
 
-DotNetGlobalToolInstallOrUpdate("dotnet-rider-cli")
-
 if (Test-Path $HOME\.gitconfig.local) {
     Write-Out "Local git configuration found"
 }

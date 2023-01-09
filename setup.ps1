@@ -46,6 +46,7 @@ ScoopInstallOrUpdate("vlc")
 ScoopInstallOrUpdate("steam")
 ScoopInstallOrUpdate("signal")
 ScoopInstallOrUpdate("slack")
+ScoopInstallOrUpdate("windows-terminal")
 
 $DotNetOptOut = [System.Environment]::GetEnvironmentVariable("DOTNET_CLI_TELEMETRY_OPTOUT", "User")
 if ($DotNetOptOut -eq $null) {
@@ -53,7 +54,6 @@ if ($DotNetOptOut -eq $null) {
     [System.Environment]::SetEnvironmentVariable("DOTNET_CLI_TELEMETRY_OPTOUT", 1, "User")
 }
 
-DotNetGlobalToolInstallOrUpdate("PowerShell")
 DotNetGlobalToolInstallOrUpdate("dotnet-rider-cli")
 
 if (Test-Path $HOME\.gitconfig.local) {

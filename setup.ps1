@@ -4,12 +4,6 @@ function ScoopInstallOrUpdate($appName) {
     Invoke-Expression "powershell -Command scoop update $appName" | Out-Null
 }
 
-function DotNetGlobalToolInstallOrUpdate($appName) {
-    Write-Output "Installing $appName..."
-    Invoke-Expression "powershell -Command dotnet tool install --global $appName" | Out-Null
-    Invoke-Expression "powershell -Command dotnet tool update --global $appName" | Out-Null
-}
-
 function CommandNotAvailable($commandName) {
     if (Get-Command $commandName -ErrorAction SilentlyContinue) {
         return $false

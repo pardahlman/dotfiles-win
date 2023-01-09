@@ -38,6 +38,7 @@ ScoopInstallOrUpdate("beyondcompare")
 ScoopInstallOrUpdate("docker")
 ScoopInstallOrUpdate("vlc")
 ScoopInstallOrUpdate("steam")
+ScoopInstallOrUpdate("spotify")
 ScoopInstallOrUpdate("signal")
 ScoopInstallOrUpdate("slack")
 ScoopInstallOrUpdate("windows-terminal")
@@ -76,7 +77,6 @@ else {
 
 Write-Output "Opening firefox for manual installers"
 firefox "https://www.sync.com/download/win/sync-installer.exe"
-firefox "https://download.scdn.co/SpotifySetup.exe"
 firefox "https://addons.mozilla.org/en-US/firefox/addon/lastpass-password-manager/"
 firefox "https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/"
 firefox "https://hyper.is/#installation"

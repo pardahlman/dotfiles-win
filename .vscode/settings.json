@@ -4,5 +4,7 @@
     "powershell.codeFormatting.useCorrectCasing": true,
     "powershell.codeFormatting.whitespaceBetweenParameters": true,
     "editor.formatOnSave": true,
-    "powershell.codeFormatting.avoidSemicolonsAsLineTerminators": true
+    "powershell.codeFormatting.avoidSemicolonsAsLineTerminators": true,
+    "pester.autoRunOnSave": false,
+    "powershell.codeFormatting.useConstantStrings": true
 }

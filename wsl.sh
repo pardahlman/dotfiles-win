@@ -62,4 +62,4 @@ brew install git-delta
 fish -c 'alias --save bat="batcat"'
 fish -c 'alias --save fd="fdfind"'
 fish -c 'fisher install pardahlman/z@brew-prefix'
-fish -c 'fisher install fisher install PatrickF1/fzf.fish'
+fish -c 'fisher install PatrickF1/fzf.fish'

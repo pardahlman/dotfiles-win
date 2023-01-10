@@ -2,5 +2,6 @@
 # https://git-scm.com/docs/gitattributes#_end_of_line_conversion
 #
 * text=auto
-config/bash* text eol=lf
+config/bash/* text eol=lf
+config/fish/* text eol=lf
 wsl.sh text eol=lf

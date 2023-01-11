@@ -1,0 +1,21 @@
+[core]
+    pager = delta
+
+[delta]
+    features = decorations
+
+[delta "decorations"]
+    hyperlinks = true
+    side-by-side = false
+    syntax-theme = Visual Studio Dark+
+    #syntax-theme = Solarized (dark)
+    #commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = file syntax
+    line-numbers = true
+    hunk-header-style = omit
+    plus-style = syntax "#305430"
+    plus-emph-style = "#EEE8D5" bold "#56762B"
+    minus-style = syntax "#543030"
+    minus-emph-style = "#EEE8D5" bold "#8A3C3A"
+    true-color = always

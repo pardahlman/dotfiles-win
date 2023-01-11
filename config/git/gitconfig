@@ -168,3 +168,4 @@
     #     by the local ones
 
     path = ~/.gitconfig.local
+    path = ~/.gitconfig.delta

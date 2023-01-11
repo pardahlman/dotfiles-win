@@ -6,6 +6,7 @@ echo "Creating symlinks for config files"
 mkdir -p ~/.config/fish/
 ln -sf $PWD/config/fish/config.fish ~/.config/fish/config.fish
 ln -sf $PWD/config/git/gitconfig ~/.gitconfig
+ln -sf $PWD/config/git/gitconfig.delta ~/.gitconfig.delta
 ln -sf $PWD/config/git/gitignore ~/.gitignore
 ln -sf $PWD/config/git/gitattributes ~/.gitattributes
 ln -sf $PWD/config/bash/profile ~/.profile

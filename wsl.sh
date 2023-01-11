@@ -24,6 +24,13 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install fish -y
 
 # Install .NET 7.0
+
+# Prefere Microsoft's APT repo
+sudo echo "Package: *
+Pin: origin "packages.microsoft.com"
+Pin-Priority: 1001
+" >> /etc/apt/preferences.d/99microsoft-dotnet.pref
+
 wget https://packages.microsoft.com/config/ubuntu/22.10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 rm packages-microsoft-prod.deb
@@ -39,8 +46,7 @@ sudo apt update && sudo apt install -y \
     bat \
     fd-find \
     fzf \
-    exa \
-    zsh
+    exa
 
 # TODO: make non-interactive install work
 # Documentation: https://docs.brew.sh/Installation#unattended-installation

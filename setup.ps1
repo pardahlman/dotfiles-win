@@ -64,6 +64,11 @@ New-Item -ItemType HardLink -Force -Path $HOME -Name .gitconfig -Value $PSScript
 New-Item -ItemType HardLink -Force -Path $HOME -Name .gitconfig.delta -Value $PSScriptRoot\config\git\gitconfig.delta | Out-Null
 New-Item -ItemType HardLink -Force -Path $PROFILE -Target $PSScriptRoot\config\pwsh\Microsoft.PowerShell_profile.ps1 | Out-Null
 New-Item -Type HardLink -Force -Path $env:APPDATA\Code\User -Name settings.json -Target $PSScriptRoot\config\vscode\settings.json | Out-Null
+New-Item -Type HardLink -Force -Path "$env:LOCALAPPDATA\Microsoft\Windows Terminal" -Name settings.json -Target $PSScriptRoot\config\windows-terminal\settings.json | Out-Null
+# Best effort for Windows Terminal: copy the configuration file. Default themes, profiles etc
+# will be added when application is started, but the settings in this file are not overwritten.
+Copy-Item -Path $PSScriptRoot\config\windows-terminal\settings.json -Destination "$env:LOCALAPPDATA\Microsoft\Windows Terminal\settings.json"
+
 
 if (Test-Path $HOME/.vim_runtime) {
     Write-Output "Updating VIM configuration"

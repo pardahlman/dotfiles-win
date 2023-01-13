@@ -120,7 +120,7 @@
 
     abbrev = 12
     attributesfile = ~/.gitattributes
-    autocrlf = true
+    autocrlf = input
     editor = vim
     excludesfile = ~/.gitignore
 

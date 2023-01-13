@@ -69,6 +69,11 @@ New-Item -Type HardLink -Force -Path "$env:LOCALAPPDATA\Microsoft\Windows Termin
 # will be added when application is started, but the settings in this file are not overwritten.
 Copy-Item -Path $PSScriptRoot\config\windows-terminal\settings.json -Destination "$env:LOCALAPPDATA\Microsoft\Windows Terminal\settings.json"
 
+$FirstModulePath = $env:PSModulePath -split ';' | Select-Object -First 1
+if(-not (Test-Path "$FirstModulePath\Dotfiles"))
+{
+    New-Item -ItemType Junction -Path "$FirstModulePath\Dotfiles" -Target $PSScriptRoot\Dotfiles\ | Out-Null
+}
 
 if (Test-Path $HOME/.vim_runtime) {
     Write-Output "Updating VIM configuration"

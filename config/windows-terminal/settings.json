@@ -1,20 +1,38 @@
 {
     "copyFormatting": "none",
     "copyOnSelect": true,
-    "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-    "profiles": 
-    {
-        "defaults": 
-        {
+    "defaultProfile": "{a0ff08c0-e118-4ddd-9887-8d3eeb741f81}",
+    "profiles": {
+        "defaults": {
             "colorScheme": "Solarized Dark Patched",
-            "font": 
-            {
-                "face": "FiraCode NF"
+            "font": {
+                "face": "Fira Code"
             }
-        }
+        },
+        "list": [
+            {
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "name": "Windows PowerShell"
+            },
+            {
+                "commandline": "pwsh.exe",
+                "guid": "{a0ff08c0-e118-4ddd-9887-8d3eeb741f81}",
+                "hidden": false,
+                "icon": "ms-appx:///ProfileIcons/pwsh.png",
+                "name": "PowerShell"
+            },
+            {
+                "commandline": "C:\\WINDOWS\\system32\\wsl.exe -d Ubuntu",
+                "guid": "{367cdfdb-1723-4cac-8ed6-77c1aa6fbf60}",
+                "hidden": false,
+                "icon": "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png",
+                "name": "Ubuntu",
+                "startingDirectory": "~"
+            }
+        ]
     },
-    "schemes": 
-    [
+    "schemes": [
         {
             "background": "#002B36",
             "black": "#073642",

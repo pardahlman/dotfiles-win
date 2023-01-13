@@ -1,10 +1,10 @@
 function Get-DotfilesLocation {
     # Assume this file is located in root of module
-    $ModulePath = Get-Item ($PSScriptRoot)
+    $DotfilesModulePath = Get-Item ($PSScriptRoot)
 
-    if($ModulePath.LinkType -eq 'Junction')
+    if($DotfilesModulePath.LinkType -eq 'Junction')
     {
-        $ModulePath = Select-Object -InputObject $ModulePath -ExpandProperty Target | Get-Item
+        $DotfilesModulePath = Select-Object -InputObject $DotfilesModulePath -ExpandProperty Target | Get-Item
     }
-    return $ModulePath.FullName | Split-Path
+    return $DotfilesModulePath.FullName | Split-Path
 }

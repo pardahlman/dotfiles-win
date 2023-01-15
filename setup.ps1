@@ -35,20 +35,10 @@ if ($DotNetOptOut -eq $null) {
     [System.Environment]::SetEnvironmentVariable("DOTNET_CLI_TELEMETRY_OPTOUT", 1, "User")
 }
 
-if (Test-Path $HOME\.gitconfig.local) {
-    Write-Out "Local git configuration found"
-}
-else {
-    Copy-Item -Path $PSScriptRoot\config\git\gitconfig.local -Destination $HOME\.gitconfig.local | Out-Null
-}
-
-New-Item -ItemType HardLink -Force -Path $HOME -Name .gitignore -Value $PSScriptRoot\config\git\gitignore | Out-Null
-New-Item -ItemType HardLink -Force -Path $HOME -Name .gitattributes -Value $PSScriptRoot\config\git\gitattributes | Out-Null
-New-Item -ItemType HardLink -Force -Path $HOME -Name .gitconfig -Value $PSScriptRoot\config\git\gitconfig | Out-Null
-New-Item -ItemType HardLink -Force -Path $HOME -Name .gitconfig.delta -Value $PSScriptRoot\config\git\gitconfig.delta | Out-Null
 New-Item -ItemType HardLink -Force -Path $PROFILE -Target $PSScriptRoot\config\pwsh\Microsoft.PowerShell_profile.ps1 | Out-Null
 New-Item -Type HardLink -Force -Path $env:APPDATA\Code\User -Name settings.json -Target $PSScriptRoot\config\vscode\settings.json | Out-Null
 
+Set-GitConfiguration
 Set-WindowsTerminalConfiguration
 
 if (Test-Path $HOME/.vim_runtime) {

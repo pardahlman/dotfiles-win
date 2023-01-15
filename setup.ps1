@@ -24,10 +24,8 @@ Install-Scoop
 Install-ScoopApps ./scoop.json
 Set-GitConfiguration
 Set-WindowsTerminalConfiguration
-
-New-Item -ItemType HardLink -Force -Path $PROFILE -Target $PSScriptRoot\config\pwsh\Microsoft.PowerShell_profile.ps1 | Out-Null
-New-Item -Type HardLink -Force -Path $env:APPDATA\Code\User -Name settings.json -Target $PSScriptRoot\config\vscode\settings.json | Out-Null
-
+Set-PowerShellProfile
+Set-VisualStudioCodeConfiguration
 
 if (Test-Path $HOME/.vim_runtime) {
     Write-Output "Updating VIM configuration"

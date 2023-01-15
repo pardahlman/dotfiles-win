@@ -1,16 +1,3 @@
-
-function CommandNotAvailable($commandName) {
-    if (Get-Command $commandName -ErrorAction SilentlyContinue) {
-        return $false
-    }
-
-    return $true
-}
-
-if (CommandNotAvailable("scoop")) {
-    Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
-}
-
 if(-not (Get-Module -Name Dotfiles))
 {
     if(Get-Module -Name Dotfiles -ListAvailable)
@@ -33,6 +20,7 @@ if ($DotNetOptOut -eq $null) {
     [System.Environment]::SetEnvironmentVariable("DOTNET_CLI_TELEMETRY_OPTOUT", 1, "User")
 }
 
+Install-Scoop
 Install-ScoopApps ./scoop.json
 Set-GitConfiguration
 Set-WindowsTerminalConfiguration

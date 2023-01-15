@@ -1,8 +1,3 @@
-function ScoopInstallOrUpdate($appName) {
-    Write-Output "Installing $appName..."
-    Invoke-Expression "powershell -Command scoop install $appName" | Out-Null
-    Invoke-Expression "powershell -Command scoop update $appName" | Out-Null
-}
 
 function CommandNotAvailable($commandName) {
     if (Get-Command $commandName -ErrorAction SilentlyContinue) {
@@ -10,11 +5,6 @@ function CommandNotAvailable($commandName) {
     }
 
     return $true
-}
-
-function ScoopAddScoopBucket($bucketName) {
-    Write-Output "Adding bucket $bucketName"
-    Invoke-Expression "powershell -Command scoop bucket add $bucketName" | Out-Null
 }
 
 if (CommandNotAvailable("scoop")) {
@@ -37,26 +27,7 @@ if(-not (Get-Module -Name Dotfiles))
     }
 }
 
-ScoopInstallOrUpdate("git")
-ScoopAddScoopBucket("extras")
-ScoopInstallOrUpdate("sudo")
-ScoopInstallOrUpdate("z")
-#ScoopInstallOrUpdate("dotnet-sdk")
-ScoopInstallOrUpdate("posh-git")
-ScoopInstallOrUpdate("nvm")
-ScoopInstallOrUpdate("busybox")
-ScoopInstallOrUpdate("vim")
-ScoopInstallOrUpdate("vscode")
-ScoopInstallOrUpdate("jetbrains-toolbox")
-ScoopInstallOrUpdate("firefox")
-ScoopInstallOrUpdate("everything")
-ScoopInstallOrUpdate("docker")
-ScoopInstallOrUpdate("spotify")
-ScoopInstallOrUpdate("signal")
-ScoopInstallOrUpdate("slack")
-ScoopInstallOrUpdate("windows-terminal")
-ScoopInstallOrUpdate("bitwarden")
-ScoopInstallOrUpdate("keepass")
+Install-ScoopApps ./scoop.json
 
 $DotNetOptOut = [System.Environment]::GetEnvironmentVariable("DOTNET_CLI_TELEMETRY_OPTOUT", "User")
 if ($DotNetOptOut -eq $null) {

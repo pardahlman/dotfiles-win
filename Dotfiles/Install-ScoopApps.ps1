@@ -9,6 +9,7 @@ PS> Instal-ScoopApps .\scoop.json
 
 #>
 function Install-ScoopApps {
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseSingularNouns", "")]
     Param($JsonManifest)
     if (-not (Test-CommandExist "scoop")) {
         throw "Unable to install Scoop apps. Scoop is not installed"

@@ -1,0 +1,122 @@
+{
+    "apps": [
+        {
+            "Source": "main",
+            "Name": "bat"
+        },
+        {
+            "Source": "extras",
+            "Name": "bitwarden"
+        },
+        {
+            "Source": "main",
+            "Name": "busybox"
+        },
+        {
+            "Source": "main",
+            "Name": "delta"
+        },
+        {
+            "Source": "extras",
+            "Name": "everything"
+        },
+        {
+            "Source": "nerd-fonts",
+            "Name": "firacode"
+        },
+        {
+            "Source": "extras",
+            "Name": "firefox"
+        },
+        {
+            "Source": "main",
+            "Name": "git"
+        },
+        {
+            "Source": "main",
+            "Name": "grep"
+        },
+        {
+            "Source": "extras",
+            "Name": "jetbrains-toolbox"
+        },
+        {
+            "Source": "extras",
+            "Name": "keepass"
+        },
+        {
+            "Source": "main",
+            "Name": "less"
+        },
+        {
+            "Source": "main",
+            "Name": "nvm"
+        },
+        {
+            "Source": "main",
+            "Name": "pester"
+        },
+        {
+            "Source": "extras",
+            "Name": "posh-git"
+        },
+        {
+            "Source": "main",
+            "Name": "pwsh"
+        },
+        {
+            "Source": "extras",
+            "Name": "screentogif"
+        },
+        {
+            "Source": "extras",
+            "Name": "signal"
+        },
+        {
+            "Source": "extras",
+            "Name": "slack"
+        },
+        {
+            "Source": "extras",
+            "Name": "spotify"
+        },
+        {
+            "Source": "main",
+            "Name": "starship"
+        },
+        {
+            "Source": "main",
+            "Name": "sudo"
+        },
+        {
+            "Source": "main",
+            "Name": "vim"
+        },
+        {
+            "Source": "extras",
+            "Name": "vscode"
+        },
+        {
+            "Source": "extras",
+            "Name": "windows-terminal"
+        },
+        {
+            "Source": "extras",
+            "Name": "z"
+        }
+    ],
+    "buckets": [
+        {
+            "Name": "extras",
+            "Source": "https://github.com/ScoopInstaller/Extras"
+        },
+        {
+            "Name": "main",
+            "Source": "https://github.com/ScoopInstaller/Main"
+        },
+        {
+            "Name": "nerd-fonts",
+            "Source": "https://github.com/matthewjberger/scoop-nerd-fonts"
+        }
+    ]
+}

@@ -21,6 +21,22 @@ if (CommandNotAvailable("scoop")) {
     Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
 }
 
+if(-not (Get-Module -Name Dotfiles))
+{
+    if(Get-Module -Name Dotfiles -ListAvailable)
+    {
+        Import-Module Dotfiles
+    } else {
+        $FirstModulePath = $env:PSModulePath -split ';' | Select-Object -First 1
+        if(-not (Test-Path "$FirstModulePath\Dotfiles"))
+        {
+            Write-Output "Installing 'Dotfiles' module to $FirstModulePath".
+            New-Item -ItemType Junction -Path "$FirstModulePath\Dotfiles" -Target $PSScriptRoot\Dotfiles\ | Out-Null
+            Import-Module Dotfiles
+        }
+    }
+}
+
 ScoopInstallOrUpdate("git")
 ScoopAddScoopBucket("extras")
 ScoopInstallOrUpdate("sudo")
@@ -61,16 +77,8 @@ New-Item -ItemType HardLink -Force -Path $HOME -Name .gitconfig -Value $PSScript
 New-Item -ItemType HardLink -Force -Path $HOME -Name .gitconfig.delta -Value $PSScriptRoot\config\git\gitconfig.delta | Out-Null
 New-Item -ItemType HardLink -Force -Path $PROFILE -Target $PSScriptRoot\config\pwsh\Microsoft.PowerShell_profile.ps1 | Out-Null
 New-Item -Type HardLink -Force -Path $env:APPDATA\Code\User -Name settings.json -Target $PSScriptRoot\config\vscode\settings.json | Out-Null
-New-Item -Type HardLink -Force -Path "$env:LOCALAPPDATA\Microsoft\Windows Terminal" -Name settings.json -Target $PSScriptRoot\config\windows-terminal\settings.json | Out-Null
-# Best effort for Windows Terminal: copy the configuration file. Default themes, profiles etc
-# will be added when application is started, but the settings in this file are not overwritten.
-Copy-Item -Path $PSScriptRoot\config\windows-terminal\settings.json -Destination "$env:LOCALAPPDATA\Microsoft\Windows Terminal\settings.json"
 
-$FirstModulePath = $env:PSModulePath -split ';' | Select-Object -First 1
-if(-not (Test-Path "$FirstModulePath\Dotfiles"))
-{
-    New-Item -ItemType Junction -Path "$FirstModulePath\Dotfiles" -Target $PSScriptRoot\Dotfiles\ | Out-Null
-}
+Set-WindowsTerminalConfiguration
 
 if (Test-Path $HOME/.vim_runtime) {
     Write-Output "Updating VIM configuration"

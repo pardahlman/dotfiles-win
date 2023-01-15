@@ -14,20 +14,13 @@ if(-not (Get-Module -Name Dotfiles))
     }
 }
 
-$DotNetOptOut = [System.Environment]::GetEnvironmentVariable("DOTNET_CLI_TELEMETRY_OPTOUT", "User")
-if ($DotNetOptOut -eq $null) {
-    Write-Output "Opting out from .NET Telemetry"
-    [System.Environment]::SetEnvironmentVariable("DOTNET_CLI_TELEMETRY_OPTOUT", 1, "User")
-}
-
+Disable-DotnetTelemetry
 Install-Scoop
 Install-ScoopApps ./scoop.json
 Set-GitConfiguration
 Set-WindowsTerminalConfiguration
-
-New-Item -ItemType HardLink -Force -Path $PROFILE -Target $PSScriptRoot\config\pwsh\Microsoft.PowerShell_profile.ps1 | Out-Null
-New-Item -Type HardLink -Force -Path $env:APPDATA\Code\User -Name settings.json -Target $PSScriptRoot\config\vscode\settings.json | Out-Null
-
+Set-PowerShellProfile
+Set-VisualStudioCodeConfiguration
 
 if (Test-Path $HOME/.vim_runtime) {
     Write-Output "Updating VIM configuration"

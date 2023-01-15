@@ -14,12 +14,7 @@ if(-not (Get-Module -Name Dotfiles))
     }
 }
 
-$DotNetOptOut = [System.Environment]::GetEnvironmentVariable("DOTNET_CLI_TELEMETRY_OPTOUT", "User")
-if ($DotNetOptOut -eq $null) {
-    Write-Output "Opting out from .NET Telemetry"
-    [System.Environment]::SetEnvironmentVariable("DOTNET_CLI_TELEMETRY_OPTOUT", 1, "User")
-}
-
+Disable-DotnetTelemetry
 Install-Scoop
 Install-ScoopApps ./scoop.json
 Set-GitConfiguration

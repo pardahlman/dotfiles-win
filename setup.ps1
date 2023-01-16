@@ -1,17 +1,11 @@
-if(-not (Get-Module -Name Dotfiles))
+if(Get-Module -Name Dotfiles -ListAvailable)
 {
-    if(Get-Module -Name Dotfiles -ListAvailable)
-    {
-        Import-Module Dotfiles
-    } else {
-        $FirstModulePath = $env:PSModulePath -split ';' | Select-Object -First 1
-        if(-not (Test-Path "$FirstModulePath\Dotfiles"))
-        {
-            Write-Output "Installing 'Dotfiles' module to $FirstModulePath".
-            New-Item -ItemType Junction -Path "$FirstModulePath\Dotfiles" -Target $PSScriptRoot\Dotfiles\ | Out-Null
-            Import-Module Dotfiles
-        }
-    }
+    Import-Module Dotfiles
+} else {
+    $FirstModulePath = $env:PSModulePath -split ';' | Select-Object -First 1
+    Write-Output "Installing 'Dotfiles' module to $FirstModulePath".
+    New-Item -ItemType Junction -Path "$FirstModulePath\Dotfiles" -Target $PSScriptRoot\Dotfiles\ | Out-Null
+    Import-Module Dotfiles
 }
 
 Disable-DotnetTelemetry

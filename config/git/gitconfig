@@ -158,6 +158,10 @@
 
     useConfigOnly = true
 
+[mergetool]
+
+    keepBackup = false
+
 [include]
 
     # Load local configs.

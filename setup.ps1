@@ -15,18 +15,7 @@ Set-GitConfiguration
 Set-WindowsTerminalConfiguration
 Set-PowerShellProfile
 Set-VisualStudioCodeConfiguration
-
-if (Test-Path $HOME/.vim_runtime) {
-    Write-Output "Updating VIM configuration"
-    Push-Location $HOME/.vim_runtime
-    git pull --rebase
-    Pop-Location
-}
-else {
-    Write-Output "Installing VIM configuration"
-    git clone --depth=1 https://github.com/amix/vimrc.git $HOME/.vim_runtime
-    New-Item -ItemType HardLink -Force -Path $HOME -Name .vimrc -Value $HOME\.vim_runtime\vimrcs\basic.vim | Out-Null
-}
+Set-VimConfiguration
 
 Write-Output "Opening firefox for manual installers"
 firefox "https://www.sync.com/download/win/sync-installer.exe"

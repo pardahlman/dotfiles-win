@@ -19,7 +19,9 @@ call plug#begin()
   Plug 'ervandew/supertab'
 call plug#end()
 
-setlocal spell spelllang=en_us
+" Spell check and autocomplete in git commit messages
+autocmd FileType gitcommit setlocal spell spelllang=en_us
+autocmd FileType gitcommit setlocal complete+=kspell
 
 " Make Vim more useful
 set nocompatible

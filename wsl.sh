@@ -66,3 +66,6 @@ fish -c 'alias --save bat="batcat"'
 fish -c 'alias --save fd="fdfind"'
 fish -c 'fisher install pardahlman/z@brew-prefix'
 fish -c 'fisher install PatrickF1/fzf.fish'
+
+# fix for first call to z resulting in 'No such file or directory'
+touch ~/.z

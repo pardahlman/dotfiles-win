@@ -10,6 +10,7 @@ ln -sf $PWD/config/git/gitconfig.delta ~/.gitconfig.delta
 ln -sf $PWD/config/git/gitignore ~/.gitignore
 ln -sf $PWD/config/git/gitattributes ~/.gitattributes
 ln -sf $PWD/config/bash/profile ~/.profile
+sudo ln -sf $PWD/config/wsl/wsl.conf /etc/wsl.conf
 
 if [ ! -f ~/.gitconfig.local ]; then
     echo "Creating .gitconfig.local with git-credential-manager" 

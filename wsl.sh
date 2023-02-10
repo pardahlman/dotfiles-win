@@ -12,6 +12,11 @@ ln -sf $PWD/config/git/gitattributes ~/.gitattributes
 ln -sf $PWD/config/bash/profile ~/.profile
 sudo ln -sf $PWD/config/wsl/wsl.conf /etc/wsl.conf
 
+# TODO: use symlink instead of copy
+sudo cp -R /mnt/c/Users/$1/.ssh ~/
+sudo chown -R $USER ~/.ssh/
+chmod -R 700 ~/.ssh/
+
 if [ ! -f ~/.gitconfig.local ]; then
     echo "Creating .gitconfig.local with git-credential-manager" 
     cp $PWD/config/git/gitconfig.local ~/.gitconfig.local

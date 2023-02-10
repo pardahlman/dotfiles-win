@@ -19,13 +19,6 @@ if [ ! -f ~/.gitconfig.local ]; then
     echo "  helper = /mnt/c/Users/$1/scoop/apps/git/current/mingw64/bin/git-credential-manager.exe" >> ~/.gitconfig.local
 fi
 
-# Install fish shell
-sudo apt-add-repository ppa:fish-shell/release-3 -y
-sudo apt update && sudo apt upgrade -y
-sudo apt install fish -y
-
-# Install .NET 7.0
-
 # Prefere Microsoft's APT repo
 sudo echo "Package: *
 Pin: origin "packages.microsoft.com"

@@ -69,3 +69,7 @@ fish -c 'fisher install PatrickF1/fzf.fish'
 
 # fix for first call to z resulting in 'No such file or directory'
 touch ~/.z
+
+# Use fish as default shell
+which fish | sudo tee -a /etc/shells
+chsh -s $(which fish)

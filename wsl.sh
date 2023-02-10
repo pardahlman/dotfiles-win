@@ -10,6 +10,12 @@ ln -sf $PWD/config/git/gitconfig.delta ~/.gitconfig.delta
 ln -sf $PWD/config/git/gitignore ~/.gitignore
 ln -sf $PWD/config/git/gitattributes ~/.gitattributes
 ln -sf $PWD/config/bash/profile ~/.profile
+sudo ln -sf $PWD/config/wsl/wsl.conf /etc/wsl.conf
+
+# TODO: use symlink instead of copy
+sudo cp -R /mnt/c/Users/$1/.ssh ~/
+sudo chown -R $USER ~/.ssh/
+chmod -R 700 ~/.ssh/
 
 if [ ! -f ~/.gitconfig.local ]; then
     echo "Creating .gitconfig.local with git-credential-manager" 
@@ -18,18 +24,12 @@ if [ ! -f ~/.gitconfig.local ]; then
     echo "  helper = /mnt/c/Users/$1/scoop/apps/git/current/mingw64/bin/git-credential-manager.exe" >> ~/.gitconfig.local
 fi
 
-# Install fish shell
-sudo apt-add-repository ppa:fish-shell/release-3 -y
-sudo apt update && sudo apt upgrade -y
-sudo apt install fish -y
-
-# Install .NET 7.0
-
 # Prefere Microsoft's APT repo
 sudo echo "Package: *
 Pin: origin "packages.microsoft.com"
 Pin-Priority: 1001
-" >> /etc/apt/preferences.d/99microsoft-dotnet.pref
+" >> ~/99microsoft-dotnet.pref
+sudo mv ~/99microsoft-dotnet.pref /etc/apt/preferences.d/
 
 wget https://packages.microsoft.com/config/ubuntu/22.10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
@@ -38,15 +38,11 @@ rm packages-microsoft-prod.deb
 sudo apt-get update && \
   sudo apt-get install -y \
   dotnet-sdk-6.0 \
-  dotnet-sdk-7.0
-
-# More apt install
-sudo apt update && sudo apt install -y \
-    fish \
-    bat \
-    fd-find \
-    fzf \
-    exa
+  dotnet-sdk-7.0 \
+  bat \
+  fd-find \
+  fzf \
+  exa
 
 # TODO: make non-interactive install work
 # Documentation: https://docs.brew.sh/Installation#unattended-installation
@@ -70,3 +66,10 @@ fish -c 'alias --save bat="batcat"'
 fish -c 'alias --save fd="fdfind"'
 fish -c 'fisher install pardahlman/z@brew-prefix'
 fish -c 'fisher install PatrickF1/fzf.fish'
+
+# fix for first call to z resulting in 'No such file or directory'
+touch ~/.z
+
+# Use fish as default shell
+which fish | sudo tee -a /etc/shells
+chsh -s $(which fish)

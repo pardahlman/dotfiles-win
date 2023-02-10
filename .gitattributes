@@ -4,4 +4,5 @@
 * text=auto
 config/bash/* text eol=lf
 config/fish/* text eol=lf
+config/wsl/* text eol=lf
 wsl.sh text eol=lf

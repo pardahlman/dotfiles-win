@@ -38,15 +38,11 @@ rm packages-microsoft-prod.deb
 sudo apt-get update && \
   sudo apt-get install -y \
   dotnet-sdk-6.0 \
-  dotnet-sdk-7.0
-
-# More apt install
-sudo apt update && sudo apt install -y \
-    fish \
-    bat \
-    fd-find \
-    fzf \
-    exa
+  dotnet-sdk-7.0 \
+  bat \
+  fd-find \
+  fzf \
+  exa
 
 # TODO: make non-interactive install work
 # Documentation: https://docs.brew.sh/Installation#unattended-installation

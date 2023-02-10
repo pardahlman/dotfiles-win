@@ -30,7 +30,8 @@ sudo apt install fish -y
 sudo echo "Package: *
 Pin: origin "packages.microsoft.com"
 Pin-Priority: 1001
-" >> /etc/apt/preferences.d/99microsoft-dotnet.pref
+" >> ~/99microsoft-dotnet.pref
+sudo mv ~/99microsoft-dotnet.pref /etc/apt/preferences.d/
 
 wget https://packages.microsoft.com/config/ubuntu/22.10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb

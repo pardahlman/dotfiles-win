@@ -22,6 +22,7 @@
         },
         {
             "Source": "nerd-fonts",
+            "Info": "Global install",
             "Name": "firacode"
         },
         {

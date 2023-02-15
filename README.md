@@ -1,3 +1,4 @@
 ```
-Set-ExecutionPolicy Bypass -Scope Process -Force; iwr -useb https://raw.githubusercontent.com/pardahlman/dotfiles-win/master/bootstrap.ps1 | iex
+Set-ExecutionPolicy Bypass -Scope User -Force
+irm https://raw.githubusercontent.com/pardahlman/dotfiles-win/main/bootstrap.ps1 | iex
 ```

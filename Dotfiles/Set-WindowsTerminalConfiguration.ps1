@@ -15,5 +15,12 @@ function Set-WindowsTerminalConfiguration {
     [CmdletBinding(SupportsShouldProcess)]
     param()
     $DotfilesLocation = Get-DotfilesLocation
-    Copy-Item -Path $DotfilesLocation\config\windows-terminal\settings.json -Destination "$Env:LocalAppData\Microsoft\Windows Terminal\settings.json"
+    $WindowsTerminalSettingsPath = "$Env:LocalAppData\Microsoft\Windows Terminal\settings.json"
+
+    if(-not (Test-Path $WindowsTerminalSettingsPath))
+    {
+        New-Item -Type Directory $WindowsTerminalSettingsPath
+    }
+
+    Copy-Item -Path $DotfilesLocation\config\windows-terminal\settings.json -Destination "$Env:LocalAppData\Microsoft\Windows Terminal\settings.json" -Force
 }

@@ -11,6 +11,7 @@ if(Get-Module -Name Dotfiles -ListAvailable)
 Disable-DotnetTelemetry
 Install-Scoop
 Install-ScoopApps $PSScriptRoot/scoop.json
+sudo Install-ScoopApps $PSScriptRoot/scoop.global.json
 Set-GitConfiguration
 Set-WindowsTerminalConfiguration
 Set-PowerShellProfile

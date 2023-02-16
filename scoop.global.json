@@ -1,0 +1,15 @@
+{
+    "apps": [
+        {
+            "Source": "nerd-fonts",
+            "Info": "Global install",
+            "Name": "firacode"
+        }
+    ],
+    "buckets": [
+        {
+            "Name": "nerd-fonts",
+            "Source": "https://github.com/matthewjberger/scoop-nerd-fonts"
+        }
+    ]
+}

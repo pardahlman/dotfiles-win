@@ -4,6 +4,12 @@
     {
       "Packages": [
         {
+          "PackageIdentifier": "Docker.DockerDesktop"
+        },
+        {
+          "PackageIdentifier": "JetBrains.Rider"
+        },
+        {
           "PackageIdentifier": "Yubico.Authenticator"
         }
       ],

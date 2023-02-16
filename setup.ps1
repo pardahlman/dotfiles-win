@@ -18,6 +18,9 @@ Set-PowerShellProfile
 Set-VisualStudioCodeConfiguration
 Set-VimConfiguration
 
+# Fallback winget installations
+sudo winget import $PSScriptRoot/winget.json --accept-package-agreements --accept-source-agreements
+
 Write-Output "Opening firefox for manual installers"
 firefox "https://www.sync.com/download/win/sync-installer.exe"
 firefox "https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/"

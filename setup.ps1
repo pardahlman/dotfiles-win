@@ -11,15 +11,14 @@ if(Get-Module -Name Dotfiles -ListAvailable)
 Disable-DotnetTelemetry
 Install-Scoop
 Install-ScoopApps $PSScriptRoot/scoop.json
-pwsh -c "sudo Install-ScoopApps $PSScriptRoot/scoop.global.json"
 Set-GitConfiguration
 Set-WindowsTerminalConfiguration
 Set-PowerShellProfile
 Set-VisualStudioCodeConfiguration
 Set-VimConfiguration
 
-# Fallback winget installations
-winget import $PSScriptRoot/winget.json --accept-package-agreements --accept-source-agreements
+# Continue install in elevated Powershell 7
+pwsh -c "sudo $PSScriptRoot/setup.admin.ps1"
 
 Write-Output "Opening firefox for manual installers"
 firefox "https://www.sync.com/download/win/sync-installer.exe"

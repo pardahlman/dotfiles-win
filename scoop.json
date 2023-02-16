@@ -21,11 +21,6 @@
             "Name": "everything"
         },
         {
-            "Source": "nerd-fonts",
-            "Info": "Global install",
-            "Name": "firacode"
-        },
-        {
             "Source": "extras",
             "Name": "firefox"
         },
@@ -114,10 +109,6 @@
         {
             "Name": "main",
             "Source": "https://github.com/ScoopInstaller/Main"
-        },
-        {
-            "Name": "nerd-fonts",
-            "Source": "https://github.com/matthewjberger/scoop-nerd-fonts"
         }
     ]
 }

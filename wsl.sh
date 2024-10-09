@@ -31,10 +31,6 @@ sudo apt update && \
   dotnet-sdk-6.0 \
   dotnet-sdk-7.0 \
   dotnet-sdk-8.0
-  bat \
-  fd-find \
-  fzf \
-  exa
 
 # TODO: make non-interactive install work
 # Documentation: https://docs.brew.sh/Installation#unattended-installation
@@ -53,6 +49,10 @@ brew install starship
 brew install fisher
 brew install z
 brew install git-delta
+brew install eza
+brew install fzf
+brew install bat
+brew install fd-find
 
 fish -c 'alias --save bat="batcat"'
 fish -c 'alias --save fd="fdfind"'

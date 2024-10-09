@@ -24,19 +24,10 @@ if [ ! -f ~/.gitconfig.local ]; then
     echo "  helper = /mnt/c/Users/$1/scoop/apps/git/current/mingw64/bin/git-credential-manager.exe" >> ~/.gitconfig.local
 fi
 
-# Prefere Microsoft's APT repo
-sudo echo "Package: *
-Pin: origin "packages.microsoft.com"
-Pin-Priority: 1001
-" >> ~/99microsoft-dotnet.pref
-sudo mv ~/99microsoft-dotnet.pref /etc/apt/preferences.d/
+sudo add-apt-repository ppa:dotnet/backports
 
-wget https://packages.microsoft.com/config/ubuntu/22.10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-sudo dpkg -i packages-microsoft-prod.deb
-rm packages-microsoft-prod.deb
-
-sudo apt-get update && \
-  sudo apt-get install -y \
+sudo apt update && \
+  sudo apt install -y \
   dotnet-sdk-6.0 \
   dotnet-sdk-7.0 \
   bat \

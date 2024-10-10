@@ -36,6 +36,6 @@ function Set-GitConfiguration {
         Write-Debug "Local git configuration found"
     }
     else {
-        Copy-Item -Path $GitConfigPath\gitconfig.local -Destination $TargetPath\.gitconfig.local | Out-Null
+        copy -Path $GitConfigPath\gitconfig.local -Destination $TargetPath\.gitconfig.local | Out-Null
     }
 }

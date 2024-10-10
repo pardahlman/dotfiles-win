@@ -8,9 +8,6 @@
         },
         {
           "PackageIdentifier": "JetBrains.Rider"
-        },
-        {
-          "PackageIdentifier": "Yubico.Authenticator"
         }
       ],
       "SourceDetails": {

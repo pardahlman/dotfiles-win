@@ -5,10 +5,6 @@
             "Name": "bat"
         },
         {
-            "Source": "extras",
-            "Name": "bitwarden"
-        },
-        {
             "Source": "main",
             "Name": "busybox"
         },
@@ -38,7 +34,7 @@
         },
         {
             "Source": "extras",
-            "Name": "keepass"
+            "Name": "keepassxc"
         },
         {
             "Source": "main",

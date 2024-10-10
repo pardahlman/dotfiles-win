@@ -15,10 +15,9 @@ function Set-WindowsTerminalConfiguration {
     [CmdletBinding(SupportsShouldProcess)]
     param()
     $DotfilesLocation = Get-DotfilesLocation
-    $WindowsTerminalSettingsPath = "$Env:LocalAppData\Microsoft\Windows Terminal"
+    $WindowsTerminalSettingsPath = "$Env:LocalAppData\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\"
 
-    if(-not (Test-Path $WindowsTerminalSettingsPath))
-    {
+    if (-not (Test-Path $WindowsTerminalSettingsPath)) {
         New-Item -Type Directory $WindowsTerminalSettingsPath | Out-Null
     }
 

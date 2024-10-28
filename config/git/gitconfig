@@ -5,6 +5,7 @@
     aap = !git add . && git ane && git pf
     br  = branch
     c   = commit
+    format = !git rebase --interactive --exec \"dotnet format whitespace . && git commit -a --allow-empty --fixup=HEAD\" --strategy-option=theirs origin/$(git main)
     ca  = !git add -A && git commit             # Commit all changes.
     co  = checkout
     cob = checkout -b
